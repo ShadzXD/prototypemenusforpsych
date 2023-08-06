@@ -52,7 +52,12 @@ class VisualsUISubState extends BaseOptionsMenu
 				ClientPrefs.data.splashSkin = ClientPrefs.defaultData.splashSkin; //Reset to default if saved splashskin couldnt be found
 
 			noteSplashes.insert(0, ClientPrefs.defaultData.splashSkin); //Default skin always comes first
-			
+				var option:Option = new Option('Note Splashes:',
+				"Select your prefered Note Splash variation or turn it off.",
+				'splashSkin',
+				'string',
+				noteSplashes);
+			addOption(option);
 		}
 
 		var option:Option = new Option('Note Splash Opacity',

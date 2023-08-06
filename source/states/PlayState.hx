@@ -964,7 +964,8 @@ class PlayState extends MusicBeatState
 				setOnScripts('defaultPlayerStrumX' + i, playerStrums.members[i].x);
 				setOnScripts('defaultPlayerStrumY' + i, playerStrums.members[i].y);
 			}
-			for (i in 0...opponentStrums.length) {
+			for (i in 0...opponentStrums.length) {    
+
 				setOnScripts('defaultOpponentStrumX' + i, opponentStrums.members[i].x);
 				setOnScripts('defaultOpponentStrumY' + i, opponentStrums.members[i].y);
 				//if(ClientPrefs.data.middleScroll) opponentStrums.members[i].visible = false;
@@ -3315,10 +3316,6 @@ class PlayState extends MusicBeatState
 			spr = playerStrums.members[id];
 		}
 
-		if(spr != null) {
-			spr.playAnim('confirm', true);
-			spr.resetAnim = time;
-		}
 	}
 
 	public var ratingName:String = '?';
