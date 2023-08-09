@@ -22,6 +22,8 @@ import states.PlayState;
 import states.StoryMenuState;
 import states.OutdatedState;
 import states.MainMenuState;
+import states.PlayState;
+import states.PlayState.campaignScore;
 
 #if MODS_ALLOWED
 import sys.FileSystem;
@@ -46,6 +48,7 @@ class TitleState extends MusicBeatState
 	public static var muteKeys:Array<FlxKey> = [FlxKey.ZERO];
 	public static var volumeDownKeys:Array<FlxKey> = [FlxKey.NUMPADMINUS, FlxKey.MINUS];
 	public static var volumeUpKeys:Array<FlxKey> = [FlxKey.NUMPADPLUS, FlxKey.PLUS];
+	public var campaignscoreTxt:FlxText;
 
 	public static var initialized:Bool = false;
 
@@ -236,6 +239,14 @@ class TitleState extends MusicBeatState
 			newTitle = false;
 			
 		}
+
+		campaignscoreTxt = new FlxText(100, FlxG.width - 1250, "Score: " + campaignScore, 48);
+		campaignscoreTxt.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		campaignscoreTxt.scrollFactor.set();
+		campaignscoreTxt.borderSize = 1.25;
+		campaignscoreTxt.visible = true;
+		add(campaignscoreTxt);
+
 		var logoBl:FlxSprite = new FlxSprite().loadGraphic(Paths.image('proto-logo'));
 		logoBl.antialiasing = ClientPrefs.data.antialiasing;
 		logoBl.screenCenter();
